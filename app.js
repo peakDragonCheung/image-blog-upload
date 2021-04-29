@@ -20,8 +20,10 @@ app.use(koaBody({
   }));
 app.use(async ctx => {
     if(ctx.req.url === '/') {
+    	console.log('进入请求');
         const url = await upLoadImage(ctx);
         ctx.body = url;
+        console.log('请求结束');
         return
     }
     ctx.body = '无权访问'
