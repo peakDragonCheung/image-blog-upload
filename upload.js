@@ -7,7 +7,7 @@ const uploadimg = (ctx) => {
     if (ctx.request.files['file']) {
       // 创建可读流
       const reader = fs.createReadStream(ctx.request.files['file']['path']);
-      let filePath = `${path.resolve(__dirname, '../file/other')}/${ctx.request.files['file']['name']}`;
+      let filePath = `${path.resolve(__dirname, './public/upload')}/${ctx.request.files['file']['name']}`;
       remotefilePath = `https://www.zhanglongfeng.cn/file/other/${ctx.request.files['file']['name']}`;
       // 创建可写流
       const upStream = fs.createWriteStream(filePath);
