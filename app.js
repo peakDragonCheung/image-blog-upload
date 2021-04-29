@@ -19,7 +19,7 @@ app.use(koaBody({
     }
   }));
 app.use(async ctx => {
-    if(ctx.req.url === '/') {
+    if(ctx.req.url === '/upload') {
         const url = await upLoadImage(ctx);
         ctx.body = url;
         return

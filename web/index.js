@@ -2,7 +2,7 @@
     function upload(file) {
        const formData =  new FormData();
        formData.append('file',file);
-       axios.post('http://zhanglongfeng:4040/',formData).then(res => {
+       axios.post('http://zhanglongfeng:4040/upload',formData).then(res => {
            console.log('res',res);
        }).catch(err => {
         console.log('err',err);
