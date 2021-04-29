@@ -17,7 +17,7 @@ app.use(koaBody({
       },
     }
   }));
-app.use(static(path.join(__dirname,'./web')));
+// app.use(static(path.join(__dirname,'./web')));
 
 app.use(async ctx => {
     if(ctx.req.url === '/upload') {
