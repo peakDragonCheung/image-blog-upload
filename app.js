@@ -2,9 +2,10 @@ const Koa = require('koa');
 const koaBody = require('koa-body');
 const path = require('path');
 const cors = require('@koa/cors');
+const static = require('koa-static');
 const app = new Koa();
 const upLoadImage = require('./upload.js');
-const { url } = require('inspector');
+app.use(static(path.join(__dirname,'./web')));
 app.use(cors());
 app.use(koaBody({
     multipart:true, // 支持文件上传
@@ -20,11 +21,11 @@ app.use(koaBody({
 app.use(async ctx => {
     if(ctx.req.url === '/') {
         const url = await upLoadImage(ctx);
-        ctx.body = 'url' + url;
+        ctx.body = url;
         return
     }
     ctx.body = '无权访问'
 });
 
-console.log('开始监听..... 3000','\n','请访问 http://localhost:3000')
-app.listen(3000);
+console.log('开始监听..... 4040','\n','请访问 http://localhost:4040')
+app.listen(4040);
