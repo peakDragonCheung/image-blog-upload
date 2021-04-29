@@ -17,7 +17,7 @@ app.use(koaBody({
       },
     }
   }));
-// app.use(static(path.join(__dirname,'./web')));
+app.use(static(path.join(__dirname,'./web')));
 
 app.use(async ctx => {
     if(ctx.req.url === '/upload') {
@@ -27,6 +27,4 @@ app.use(async ctx => {
     }
 });
 
-
-console.log('开始监听..... 4040','\n','请访问 http://localhost:4040')
 app.listen(4040);
